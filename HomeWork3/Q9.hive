@@ -1,3 +1,0 @@
-ADD JAR FORMATGENRE.jar;
-Create temporary function format_genre as FORMATGENRE;
-select movie_id,title,format_genre(genres) from movies;
