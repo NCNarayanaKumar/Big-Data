@@ -1,0 +1,1 @@
+nodetool -h csac0 status;

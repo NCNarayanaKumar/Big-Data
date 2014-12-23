@@ -1,0 +1,1 @@
+select r.movie_id,avg(r.rating) as avg_ratings from movies m,ratings r,users u where (m.genres like '%Action%' and m.genres like '%Drama%') and r.movie_id=m.movie_id and r.user_id=u.user_id and u.gender='M' GROUP BY r.movie_id having avg_ratings>4.4 and avg_ratings<4.9;
