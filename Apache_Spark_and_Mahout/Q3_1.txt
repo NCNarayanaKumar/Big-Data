@@ -1,0 +1,2 @@
+
+./mahout spark-itemsimilarity --input hdfs://localhost:9000/h5/ratings -id "::" --output out-dir -f1 4 -rc 0 -ic 1 -fc 2 -m 5 -td ","

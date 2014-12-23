@@ -1,0 +1,4 @@
+Create table movie_partitions(movie_id int,title string,genres string) PARTITIONED BY (year int) ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘#’;
+LOAD DATA Local INPATH '/tmp/HW_3_Data/partition/2011' OVERWRITE into TABLE movie_partitions PARTITION (year=2011);
+LOAD DATA Local INPATH '/tmp/HW_3_Data/partition/2010’ OVERWRITE into TABLE movie_partitions PARTITION (year=2010);
+LOAD DATA Local INPATH '/tmp/HW_3_Data/partition/2009’ OVERWRITE into TABLE movie_partitions PARTITION (year=2009);

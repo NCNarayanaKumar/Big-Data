@@ -1,0 +1,9 @@
+Create table movies(movie_id int,title string,genres string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘#’ ;
+Create table ratings(user_id int,movie_id int,rating float) ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘#’;
+Create table users(user_id int,gender string,age int) ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘#’;
+
+LOAD DATA Local INPATH ‘/tmp/Fall2014_HW-3_Hive/movies_new.dat’ into TABLE movies;
+LOAD DATA Local INPATH ‘/tmp/Fall2014_HW-3_Hive/ratings_new.dat’ into TABLE ratings;
+LOAD DATA Local INPATH ‘/tmp/Fall2014_HW-3_Hive/users_new.dat’ into TABLE users;
+
+select r.movie_id,avg(r.rating) as avg_ratings from movies m,ratings r where (m.genres like '%Action%') and r.movie_id=m.movie_id GROUP BY r.movie_id SORT BY avg_ratings DESC LIMIT 10;

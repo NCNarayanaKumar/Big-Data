@@ -1,0 +1,31 @@
+CREATE KEYSPACE rxs136530 WITH REPLICATION = { 'class' : 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor' : 1 };
+
+use rxs136530;
+
+1.
+
+CREATE TABLE movies ( movie_id INT PRIMARY KEY, title VARCHAR,genres VARCHAR);
+
+
+2.
+
+i)   INSERT INTO movies (movie_id, title, genres ) VALUES (70,'From Dusk Till Dawn (1996)','Action|Comedy|Crime|Horror|Thriller');
+
+ii)   INSERT INTO movies (movie_id, title, genres ) VALUES (83,ÕOnce Upon a Time When We Were Colored (1995)','Drama');
+
+iii) INSERT INTO movies (movie_id, title, genres ) VALUES (112,ÕFrom Dusk Till Dawn (1996)','Action|Comedy|Crime|Horror|Thriller') using TTL = 300;
+
+
+3.
+
+i) SELECT * FROM movies where movie_id = 70;
+
+ii) LIST movies;
+
+iii) DELETE genres FROM movies where movie_id = 83;
+
+iv) DROP TABLE movies;
+
+4.
+
+DESCRIBE KEYSPACE rxs136530;

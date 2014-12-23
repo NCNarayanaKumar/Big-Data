@@ -1,0 +1,4 @@
+
+
+scala> 
+def findUser{val zipcode = Console.readLine();val sfile = sc.textFile("hdfs://localhost:9000/h5/users”); println("The Zip Code is "+zipcode+" And User Id's are"); val result = sfile.filter(_.contains(zipcode)).map(_.split("::")(0)).foreach(println); }

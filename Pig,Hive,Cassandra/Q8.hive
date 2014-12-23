@@ -1,0 +1,8 @@
+Create table movie_2009(movie_id int,title string,genres string);
+Create table movie_2010(movie_id int,title string,genres string);
+Create table movie_2011(movie_id int,title string,genres string);
+
+FROM movie_partitions
+INSERT OVERWRITE TABLE movie_2009 select movie_id,title,genres where year = 2009;
+INSERT OVERWRITE TABLE movie_2010 select movie_id,title,genres where year = 2010;
+INSERT OVERWRITE TABLE movie_2011 select movie_id,title,genres where year = 2011;
